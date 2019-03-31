@@ -1,0 +1,58 @@
+﻿@model MvcMusicList.Models.MusicList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MusicList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Artiste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artiste)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Album)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Album)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Annee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Annee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vues)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vues)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

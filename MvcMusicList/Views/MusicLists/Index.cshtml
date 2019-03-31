@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MvcMusicList.Models.MusicList>
+
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
+
+@{
+    ViewBag.Title = "MusicList";
+}
+
+<h2>Musics List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+    @using (Html.BeginForm("Index", "MusicLists",FormMethod.Get))
+    {
+<p>
+    Genre: @Html.DropDownList("musicListGenre", "All")
+    Artiste: @Html.TextBox("SearchString")
+    <input type="submit" value="Filter" />
+    Annee de sortie : @Html.TextBox("anneeSorties", "")
+    <input type="submit" value="Filter" />
+</p>
+    }
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Artiste", "Index", new { sortOder = ViewBag.NameSortParam })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Album)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.ActionLink("Annee", "Index", new { sortOder = ViewBag.AnneeSortParam })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vues)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artiste)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Album)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Annee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vues)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+
